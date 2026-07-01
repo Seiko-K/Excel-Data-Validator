@@ -16,9 +16,11 @@ Built for customer, product and research datasets.
 
 ✓ Duplicate Detection
 
-✓ Validation Rules
+✓ Validation Status Flags
 
 ✓ Highlight Errors
+
+✓ Validation Rules
 
 ✓ Report Generation
 
@@ -33,9 +35,10 @@ Built for customer, product and research datasets.
 ### Customer Master Validation
 
 - Missing customer names
+- Missing email addresses
 - Duplicate customer IDs
-- Invalid email formats
-- Required field checks
+- Validation status checks
+- Required field validation
 
 ### Product Catalog Validation
 
@@ -43,6 +46,7 @@ Built for customer, product and research datasets.
 - Duplicate product codes
 - Empty category fields
 - Price validation
+- Product quality checks
 
 ### Research Metadata Validation
 
@@ -75,10 +79,12 @@ LICENSE
 
 Features
 
-- Required field checks
-- Duplicate detection
-- Highlight invalid cells
-- Validation reports
+- Missing Name detection
+- Missing Email detection
+- Duplicate Customer ID detection
+- Error highlighting
+- Validation workflows
+- Reusable VBA modules
 
 Location
 
@@ -96,6 +102,13 @@ Example fields
 - Name
 - Email
 
+Validation scenarios
+
+- Duplicate CustomerID
+- Missing Name
+- Missing Email
+- Data quality checks
+
 ---
 
 ## Technical Highlights
@@ -107,6 +120,8 @@ Example fields
 ✓ Duplicate Detection
 
 ✓ Error Highlighting
+
+✓ Validation Status Flags
 
 ✓ Report Generation
 
@@ -127,15 +142,25 @@ Example fields
 
 ## Roadmap
 
-□ Similarity Checks
+□ Email Validation
+
+□ Validation Reports
 
 □ Batch Validation
+
+□ Similarity Checks
 
 □ Export Reports
 
 □ Validation Dashboard
 
 □ Additional Validation Modules
+
+---
+
+## License
+
+MIT © 2026 Seiko K
 
 ---
 
