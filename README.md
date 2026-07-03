@@ -18,9 +18,13 @@ Built for customer, product and research datasets.
 
 ✓ Validation Status Flags
 
+✓ Email Validation
+
 ✓ Highlight Errors
 
 ✓ Validation Rules
+
+✓ Validation Workflows
 
 ✓ Report Generation
 
@@ -36,6 +40,7 @@ Built for customer, product and research datasets.
 
 - Missing customer names
 - Missing email addresses
+- Invalid email formats
 - Duplicate customer IDs
 - Validation status checks
 - Required field validation
@@ -81,15 +86,34 @@ Features
 
 - Missing Name detection
 - Missing Email detection
+- Invalid Email detection
 - Duplicate Customer ID detection
 - Error highlighting
-- Validation workflows
+- Cleanup workflows
 - Reusable VBA modules
 
 Location
 
 ```text
 modules/Validation.bas
+```
+
+### Validation Workflow
+
+```text
+ClearValidationHighlights()
+
+↓
+
+ValidateCustomerData()
+
+↓
+
+ValidateEmails()
+
+↓
+
+HighlightDuplicates()
 ```
 
 ### Sample Dataset
@@ -107,6 +131,7 @@ Validation scenarios
 - Duplicate CustomerID
 - Missing Name
 - Missing Email
+- Invalid Email Format
 - Data quality checks
 
 ---
@@ -119,9 +144,13 @@ Validation scenarios
 
 ✓ Duplicate Detection
 
+✓ Email Validation
+
 ✓ Error Highlighting
 
 ✓ Validation Status Flags
+
+✓ Validation Workflows
 
 ✓ Report Generation
 
@@ -142,9 +171,9 @@ Validation scenarios
 
 ## Roadmap
 
-□ Email Validation
+□ GenerateValidationReport()
 
-□ Validation Reports
+□ Email Domain Validation
 
 □ Batch Validation
 
@@ -153,6 +182,10 @@ Validation scenarios
 □ Export Reports
 
 □ Validation Dashboard
+
+□ ProductValidation.bas
+
+□ ResearchValidation.bas
 
 □ Additional Validation Modules
 
