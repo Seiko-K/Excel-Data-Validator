@@ -5,3 +5,4 @@ CustomerID,Name,Email
 3,,foo@example.com
 4,Alice Brown,
 5,Bob Johnson,bob@example.com
+6,Invalid Email,bobexample.com
