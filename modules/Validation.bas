@@ -56,3 +56,24 @@ Sub HighlightDuplicates()
     ).Interior.Color = RGB(255, 200, 200)
 
 End Sub
+
+
+'==================================================
+' Cleanup Workflow
+' Clear validation highlights and conditional formatting
+' Reset the worksheet before running validation again
+'==================================================
+
+Sub ClearValidationHighlights()
+
+    Dim ws As Worksheet
+    Dim lastRow As Long
+
+    Set ws = ActiveSheet
+
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+    ws.Range("A2:C" & lastRow).Interior.ColorIndex = xlNone
+    ws.Range("A2:A" & lastRow).FormatConditions.Delete
+
+End Sub
