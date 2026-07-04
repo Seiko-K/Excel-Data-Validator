@@ -100,3 +100,59 @@ Sub HighlightDuplicates()
     rng.FormatConditions(rng.FormatConditions.Count).Interior.Color = RGB(255, 200, 200)
 
 End Sub
+
+
+'==================================================
+' Report Generation Workflow
+' Display validation summary
+'==================================================
+
+Sub GenerateValidationReport()
+
+    Dim ws As Worksheet
+    Dim lastRow As Long
+
+    Dim MissingNames As Long
+    Dim MissingEmails As Long
+
+    Set ws = ActiveSheet
+
+    lastRow = ws.Cells(
+        ws.Rows.Count,
+        1
+    ).End(xlUp).Row
+
+    Dim i As Long
+
+    For i = 2 To lastRow
+
+        If ws.Cells(i, 2).Value = "" Then
+
+            MissingNames =
+                MissingNames + 1
+
+        End If
+
+        If ws.Cells(i, 3).Value = "" Then
+
+            MissingEmails =
+                MissingEmails + 1
+
+        End If
+
+    Next i
+
+    MsgBox _
+
+        "Validation Summary" _
+        & vbCrLf _
+        & vbCrLf _
+        & "Missing Names : " _
+        & MissingNames _
+        & vbCrLf _
+        & "Missing Emails : " _
+        & MissingEmails,
+
+        vbInformation
+
+End Sub
