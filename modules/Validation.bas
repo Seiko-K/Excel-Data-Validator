@@ -156,3 +156,54 @@ Sub GenerateValidationReport()
         vbInformation
 
 End Sub
+
+
+Sub GenerateCSVReport()
+
+    Dim ws As Worksheet
+    Set ws = ActiveSheet
+
+    Dim lastRow As Long
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+    Dim filePath As String
+    filePath = ThisWorkbook.Path & "\validation_report.csv"
+
+    Dim fileNum As Integer
+    fileNum = FreeFile
+
+    Open filePath For Output As #fileNum
+
+    Print #fileNum, "Row,IssueType,Column,Value"
+
+    Dim i As Long
+
+    For i = 2 To lastRow
+
+        If Trim(ws.Cells(i, 2).Value) = "" Then
+            Print #fileNum, i & ",Missing,Name,"
+        End If
+
+        If Trim(ws.Cells(i, 3).Value) = "" Then
+            Print #fileNum, i & ",Missing,Email,"
+        End If
+
+        If InStr(ws.Cells(i, 3).Value, "@") = 0 _
+           And Trim(ws.Cells(i, 3).Value) <> "" Then
+
+            Print #fileNum, i & _
+            ",Invalid,Email," & _
+            ws.Cells(i, 3).Value
+
+        End If
+
+    Next i
+
+    Close #fileNum
+
+    MsgBox _
+        "CSV Report exported." & vbCrLf & _
+        filePath, _
+        vbInformation
+
+End Sub
