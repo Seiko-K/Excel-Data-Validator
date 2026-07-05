@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.1-blue)
+![Version](https://img.shields.io/badge/version-v0.3.1-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -24,6 +24,8 @@ Built for customer, product and research datasets.
 
 ✓ Summary Generation
 
+✓ CSV Validation Export
+
 ✓ Highlight Errors
 
 ✓ Validation Rules
@@ -46,6 +48,7 @@ Built for customer, product and research datasets.
 - Duplicate customer IDs
 - Validation status checks
 - Validation summaries
+- CSV validation reports
 - Required field validation
 
 ### Product Catalog Validation
@@ -68,6 +71,8 @@ Built for customer, product and research datasets.
 ## Repository Structure
 
 ```text
+Excel-Data-Validator/
+
 modules/
     Validation.bas
 
@@ -95,6 +100,7 @@ Features
 - Cleanup workflows
 - Validation reports
 - Summary generation
+- CSV report export
 - Reusable VBA modules
 
 Location
@@ -105,7 +111,7 @@ modules/Validation.bas
 
 ---
 
-### Validation Workflow
+## Validation Workflow
 
 ```text
 ClearValidationHighlights()
@@ -125,11 +131,15 @@ HighlightDuplicates()
 ↓
 
 GenerateValidationReport()
+
+↓
+
+GenerateCSVReport()
 ```
 
 ---
 
-### Sample Dataset
+## Sample Dataset
 
 sample_customer_data.csv
 
@@ -146,7 +156,18 @@ Validation scenarios
 - Missing Email
 - Invalid Email Format
 - Validation Reports
+- CSV Export
 - Data quality checks
+
+Example output
+
+```csv
+Row,IssueType,Column,Value
+3,Duplicate,CustomerID,2
+4,Missing,Name,
+5,Missing,Email,
+7,Invalid,Email,bobexample.com
+```
 
 ---
 
@@ -159,6 +180,8 @@ Validation scenarios
 ✓ Duplicate Detection
 
 ✓ Email Validation
+
+✓ CSV Export
 
 ✓ Validation Reports
 
@@ -191,11 +214,9 @@ Validation scenarios
 
 □ Batch Validation
 
-□ Similarity Checks
+□ Export Validation Results
 
-□ Export Reports
-
-□ CSV Summary Export
+□ Summary Export
 
 □ Validation Dashboard
 
