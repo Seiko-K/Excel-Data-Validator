@@ -1,12 +1,20 @@
-![Version](https://img.shields.io/badge/version-v0.3.1-blue)
+![Version](https://img.shields.io/badge/version-v0.3.2-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 # Excel Data Validator
 
-Excel VBA toolkit for validation, quality checks and structured data workflows.
+Reusable Excel VBA toolkit for data validation, quality checks, and structured validation workflows.
 
-Built for customer, product and research datasets.
+Built with Microsoft Excel VBA for customer, product, inventory, and research datasets.
+
+---
+
+## Architecture
+
+<p align="center">
+  <img src="images/architecture.svg" width="800" alt="Excel Data Validator Architecture">
+</p>
 
 ---
 
@@ -72,6 +80,9 @@ Built for customer, product and research datasets.
 
 ```text
 Excel-Data-Validator/
+
+images/
+    architecture.svg
 
 modules/
     Validation.bas
@@ -141,7 +152,7 @@ GenerateCSVReport()
 
 ## Sample Dataset
 
-sample_customer_data.csv
+**sample_customer_data.csv**
 
 Example fields
 
@@ -223,6 +234,8 @@ Row,IssueType,Column,Value
 □ ProductValidation.bas
 
 □ ResearchValidation.bas
+
+□ InventoryValidation.bas
 
 □ Additional Validation Modules
 
