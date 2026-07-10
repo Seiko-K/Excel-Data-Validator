@@ -57,22 +57,24 @@ End Sub
 Sub ValidateEmails()
 
     Dim ws As Worksheet
-    Dim lastRow As Long
-    Dim i As Long
-    Dim mail As String
-
     Set ws = ActiveSheet
 
-    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+    Dim lastRow As Long
+    lastRow = ws.Cells(ws.Rows.Count, 3).End(xlUp).Row
+
+    Dim i As Long
+    Dim emailAddress As String
 
     For i = 2 To lastRow
 
-        mail = ws.Cells(i, 3).Value
+        emailAddress = Trim(ws.Cells(i, 3).Value)
 
-        If mail <> "" Then
+        If emailAddress <> "" Then
 
-            If InStr(mail, "@") = 0 Then
-                ws.Cells(i, 3).Interior.Color = RGB(255, 150, 150)
+            If Not IsValidEmailDomain(emailAddress) Then
+
+                ws.Cells(i, 3).Interior.Color = RGB(255, 199, 206)
+
             End If
 
         End If
@@ -80,6 +82,57 @@ Sub ValidateEmails()
     Next i
 
 End Sub
+
+
+Function IsValidEmailDomain(ByVal emailAddress As String) As Boolean
+
+    Dim atPosition As Long
+    Dim domainPart As String
+
+    emailAddress = Trim(emailAddress)
+
+    If emailAddress = "" Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    atPosition = InStr(1, emailAddress, "@")
+
+    If atPosition <= 1 Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    If atPosition <> InStrRev(emailAddress, "@") Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    domainPart = Mid(emailAddress, atPosition + 1)
+
+    If domainPart = "" Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    If InStr(1, domainPart, ".") = 0 Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    If Left(domainPart, 1) = "." Or Right(domainPart, 1) = "." Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    If InStr(1, domainPart, "..") > 0 Then
+        IsValidEmailDomain = False
+        Exit Function
+    End If
+
+    IsValidEmailDomain = True
+
+End Function
 
 
 '==================================================
