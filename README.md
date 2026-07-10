@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.3.2-blue)
+![Version](https://img.shields.io/badge/version-v0.4-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -28,6 +28,8 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 ✓ Email Validation
 
+✓ Email Domain Validation
+
 ✓ Validation Reports
 
 ✓ Summary Generation
@@ -53,6 +55,7 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 - Missing customer names
 - Missing email addresses
 - Invalid email formats
+- Invalid email domains
 - Duplicate customer IDs
 - Validation status checks
 - Validation summaries
@@ -106,6 +109,7 @@ Features
 - Missing Name detection
 - Missing Email detection
 - Invalid Email detection
+- Email domain validation
 - Duplicate Customer ID detection
 - Error highlighting
 - Cleanup workflows
@@ -134,6 +138,10 @@ ValidateCustomerData()
 ↓
 
 ValidateEmails()
+
+↓
+
+Email Domain Validation
 
 ↓
 
@@ -166,6 +174,7 @@ Validation scenarios
 - Missing Name
 - Missing Email
 - Invalid Email Format
+- Invalid Email Domain
 - Validation Reports
 - CSV Export
 - Data quality checks
@@ -178,6 +187,10 @@ Row,IssueType,Column,Value
 4,Missing,Name,
 5,Missing,Email,
 7,Invalid,Email,bobexample.com
+8,Invalid,Email,john@gmail
+9,Invalid,Email,john@
+10,Invalid,Email,john@@example.com
+11,Invalid,Email,john@example..com
 ```
 
 ---
@@ -188,9 +201,13 @@ Row,IssueType,Column,Value
 
 ✓ Validation Automation
 
-✓ Duplicate Detection
+✓ Required Field Validation
 
 ✓ Email Validation
+
+✓ Email Domain Validation
+
+✓ Duplicate Detection
 
 ✓ CSV Export
 
@@ -220,8 +237,6 @@ Row,IssueType,Column,Value
 ---
 
 ## Roadmap
-
-□ Email Domain Validation
 
 □ Batch Validation
 
