@@ -6,3 +6,7 @@ CustomerID,Name,Email
 4,Alice Brown,
 5,Bob Johnson,bob@example.com
 6,Invalid Email,bobexample.com
+7,Missing Domain,john@gmail
+8,Empty Domain,john@
+9,Multiple At,john@@example.com
+10,Invalid Domain,john@example..com
