@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.4-blue)
+![Version](https://img.shields.io/badge/version-v0.5-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -36,6 +36,8 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 ✓ CSV Validation Export
 
+✓ Dashboard Module
+
 ✓ Highlight Errors
 
 ✓ Validation Rules
@@ -60,6 +62,7 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 - Validation status checks
 - Validation summaries
 - CSV validation reports
+- Dashboard-ready validation results
 - Required field validation
 
 ### Product Catalog Validation
@@ -89,6 +92,7 @@ images/
 
 modules/
     Validation.bas
+    Dashboard.bas
 
 examples/
     sample_customer_data.csv
@@ -126,6 +130,23 @@ modules/Validation.bas
 
 ---
 
+### Dashboard.bas
+
+Features
+
+- Dashboard module foundation
+- Validation summary framework
+- Dashboard-ready architecture
+- Future UI expansion
+
+Location
+
+```text
+modules/Dashboard.bas
+```
+
+---
+
 ## Validation Workflow
 
 ```text
@@ -154,6 +175,10 @@ GenerateValidationReport()
 ↓
 
 GenerateCSVReport()
+
+↓
+
+Dashboard Module
 ```
 
 ---
@@ -213,6 +238,8 @@ Row,IssueType,Column,Value
 
 ✓ Validation Reports
 
+✓ Dashboard Module
+
 ✓ Summary Statistics
 
 ✓ Error Highlighting
@@ -238,13 +265,13 @@ Row,IssueType,Column,Value
 
 ## Roadmap
 
+□ Dashboard UI
+
 □ Batch Validation
 
 □ Export Validation Results
 
 □ Summary Export
-
-□ Validation Dashboard
 
 □ ProductValidation.bas
 
