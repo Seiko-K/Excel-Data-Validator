@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.5-blue)
+![Version](https://img.shields.io/badge/version-v0.5.1-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -36,7 +36,7 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 ✓ CSV Validation Export
 
-✓ Dashboard Module
+✓ Validation Dashboard
 
 ✓ Highlight Errors
 
@@ -61,8 +61,8 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 - Duplicate customer IDs
 - Validation status checks
 - Validation summaries
-- CSV validation reports
 - Dashboard-ready validation results
+- CSV validation reports
 - Required field validation
 
 ### Product Catalog Validation
@@ -134,10 +134,11 @@ modules/Validation.bas
 
 Features
 
-- Dashboard module foundation
-- Validation summary framework
-- Dashboard-ready architecture
-- Future UI expansion
+- Validation dashboard
+- Validation summary display
+- Dashboard metrics
+- Dashboard foundation
+- Future dashboard UI support
 
 Location
 
@@ -178,7 +179,7 @@ GenerateCSVReport()
 
 ↓
 
-Dashboard Module
+ShowValidationDashboard()
 ```
 
 ---
@@ -201,6 +202,7 @@ Validation scenarios
 - Invalid Email Format
 - Invalid Email Domain
 - Validation Reports
+- Dashboard summary
 - CSV Export
 - Data quality checks
 
@@ -234,11 +236,11 @@ Row,IssueType,Column,Value
 
 ✓ Duplicate Detection
 
+✓ Validation Dashboard
+
 ✓ CSV Export
 
 ✓ Validation Reports
-
-✓ Dashboard Module
 
 ✓ Summary Statistics
 
@@ -264,6 +266,8 @@ Row,IssueType,Column,Value
 ---
 
 ## Roadmap
+
+□ Dashboard Charts
 
 □ Dashboard UI
 
