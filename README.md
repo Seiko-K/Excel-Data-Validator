@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.5.1-blue)
+![Version](https://img.shields.io/badge/version-v0.6-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -21,6 +21,8 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 ## Features
 
 ✓ Required Field Validation
+
+✓ Product Data Validation
 
 ✓ Duplicate Detection
 
@@ -68,9 +70,10 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 ### Product Catalog Validation
 
 - Missing SKU
+- Missing product names
 - Duplicate product codes
-- Empty category fields
-- Price validation
+- Invalid prices
+- Negative prices
 - Product quality checks
 
 ### Research Metadata Validation
@@ -93,9 +96,11 @@ images/
 modules/
     Validation.bas
     Dashboard.bas
+    ProductValidation.bas
 
 examples/
     sample_customer_data.csv
+    sample_product_data.csv
 
 README.md
 
@@ -148,6 +153,25 @@ modules/Dashboard.bas
 
 ---
 
+### ProductValidation.bas
+
+Features
+
+- Missing SKU detection
+- Missing Product Name detection
+- Invalid Price detection
+- Negative Price detection
+- Product validation highlighting
+- Reusable product validation module
+
+Location
+
+```text
+modules/ProductValidation.bas
+```
+
+---
+
 ## Validation Workflow
 
 ```text
@@ -164,6 +188,10 @@ ValidateEmails()
 ↓
 
 Email Domain Validation
+
+↓
+
+ValidateProductData()
 
 ↓
 
@@ -184,9 +212,9 @@ ShowValidationDashboard()
 
 ---
 
-## Sample Dataset
+## Sample Datasets
 
-**sample_customer_data.csv**
+### sample_customer_data.csv
 
 Example fields
 
@@ -204,20 +232,34 @@ Validation scenarios
 - Validation Reports
 - Dashboard summary
 - CSV Export
-- Data quality checks
+
+---
+
+### sample_product_data.csv
+
+Example fields
+
+- SKU
+- ProductName
+- Price
+
+Validation scenarios
+
+- Missing SKU
+- Missing Product Name
+- Negative Price
+- Invalid Price
+- Product validation
+- Dashboard summary
 
 Example output
 
 ```csv
 Row,IssueType,Column,Value
-3,Duplicate,CustomerID,2
-4,Missing,Name,
-5,Missing,Email,
-7,Invalid,Email,bobexample.com
-8,Invalid,Email,john@gmail
-9,Invalid,Email,john@
-10,Invalid,Email,john@@example.com
-11,Invalid,Email,john@example..com
+3,Missing,SKU,
+4,Missing,ProductName,
+5,Invalid,Price,-10
+6,Invalid,Price,invalid
 ```
 
 ---
@@ -228,7 +270,9 @@ Row,IssueType,Column,Value
 
 ✓ Validation Automation
 
-✓ Required Field Validation
+✓ Customer Data Validation
+
+✓ Product Data Validation
 
 ✓ Email Validation
 
@@ -276,8 +320,6 @@ Row,IssueType,Column,Value
 □ Export Validation Results
 
 □ Summary Export
-
-□ ProductValidation.bas
 
 □ ResearchValidation.bas
 
