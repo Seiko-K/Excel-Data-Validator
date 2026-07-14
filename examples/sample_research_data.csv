@@ -1,0 +1,7 @@
+DOI,Title,PublicationYear
+10.1038/s41586-020-2649-2,Array programming with NumPy,2020
+10.48550/arXiv.1706.03762,Attention Is All You Need,2017
+,Missing DOI Example,2021
+10.1000/example-doi,,2022
+10.1000/invalid-year,Invalid Year Example,invalid
+10.1000/future-year,Future Year Example,2099
