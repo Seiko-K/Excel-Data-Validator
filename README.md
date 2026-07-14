@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.6-blue)
+![Version](https://img.shields.io/badge/version-v0.7-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -22,7 +22,11 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 ✓ Required Field Validation
 
+✓ Customer Data Validation
+
 ✓ Product Data Validation
+
+✓ Research Metadata Validation
 
 ✓ Duplicate Detection
 
@@ -80,8 +84,10 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 - Missing DOI
 - Missing title
-- Duplicate records
+- Invalid publication year
+- Future publication year
 - Metadata consistency checks
+- Research dataset validation
 
 ---
 
@@ -97,10 +103,12 @@ modules/
     Validation.bas
     Dashboard.bas
     ProductValidation.bas
+    ResearchValidation.bas
 
 examples/
     sample_customer_data.csv
     sample_product_data.csv
+    sample_research_data.csv
 
 README.md
 
@@ -172,6 +180,25 @@ modules/ProductValidation.bas
 
 ---
 
+### ResearchValidation.bas
+
+Features
+
+- Missing DOI detection
+- Missing Title detection
+- Invalid Publication Year detection
+- Future Publication Year detection
+- Research metadata highlighting
+- Reusable research validation module
+
+Location
+
+```text
+modules/ResearchValidation.bas
+```
+
+---
+
 ## Validation Workflow
 
 ```text
@@ -192,6 +219,10 @@ Email Domain Validation
 ↓
 
 ValidateProductData()
+
+↓
+
+ValidateResearchData()
 
 ↓
 
@@ -252,14 +283,33 @@ Validation scenarios
 - Product validation
 - Dashboard summary
 
+---
+
+### sample_research_data.csv
+
+Example fields
+
+- DOI
+- Title
+- PublicationYear
+
+Validation scenarios
+
+- Missing DOI
+- Missing Title
+- Invalid Publication Year
+- Future Publication Year
+- Research metadata validation
+- Dashboard summary
+
 Example output
 
 ```csv
 Row,IssueType,Column,Value
-3,Missing,SKU,
-4,Missing,ProductName,
-5,Invalid,Price,-10
-6,Invalid,Price,invalid
+3,Missing,DOI,
+4,Missing,Title,
+5,Invalid,PublicationYear,invalid
+6,Invalid,PublicationYear,2099
 ```
 
 ---
@@ -273,6 +323,8 @@ Row,IssueType,Column,Value
 ✓ Customer Data Validation
 
 ✓ Product Data Validation
+
+✓ Research Metadata Validation
 
 ✓ Email Validation
 
@@ -320,8 +372,6 @@ Row,IssueType,Column,Value
 □ Export Validation Results
 
 □ Summary Export
-
-□ ResearchValidation.bas
 
 □ InventoryValidation.bas
 
