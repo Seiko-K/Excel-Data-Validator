@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.7-blue)
+![Version](https://img.shields.io/badge/version-v0.8-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -27,6 +27,8 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 ✓ Product Data Validation
 
 ✓ Research Metadata Validation
+
+✓ Inventory Data Validation
 
 ✓ Duplicate Detection
 
@@ -89,6 +91,15 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 - Metadata consistency checks
 - Research dataset validation
 
+### Inventory Validation
+
+- Missing SKU
+- Missing product names
+- Negative stock quantity
+- Invalid stock quantity
+- Negative reorder level
+- Inventory data validation
+
 ---
 
 ## Repository Structure
@@ -104,11 +115,13 @@ modules/
     Dashboard.bas
     ProductValidation.bas
     ResearchValidation.bas
+    InventoryValidation.bas
 
 examples/
     sample_customer_data.csv
     sample_product_data.csv
     sample_research_data.csv
+    sample_inventory_data.csv
 
 README.md
 
@@ -199,6 +212,27 @@ modules/ResearchValidation.bas
 
 ---
 
+### InventoryValidation.bas
+
+Features
+
+- Missing SKU detection
+- Missing Product Name detection
+- Invalid Stock Quantity detection
+- Negative Stock Quantity detection
+- Invalid Reorder Level detection
+- Negative Reorder Level detection
+- Inventory validation highlighting
+- Reusable inventory validation module
+
+Location
+
+```text
+modules/InventoryValidation.bas
+```
+
+---
+
 ## Validation Workflow
 
 ```text
@@ -223,6 +257,10 @@ ValidateProductData()
 ↓
 
 ValidateResearchData()
+
+↓
+
+ValidateInventoryData()
 
 ↓
 
@@ -302,14 +340,38 @@ Validation scenarios
 - Research metadata validation
 - Dashboard summary
 
+---
+
+### sample_inventory_data.csv
+
+Example fields
+
+- SKU
+- ProductName
+- StockQuantity
+- ReorderLevel
+
+Validation scenarios
+
+- Missing SKU
+- Missing Product Name
+- Negative Stock Quantity
+- Invalid Stock Quantity
+- Negative Reorder Level
+- Invalid Reorder Level
+- Inventory validation
+- Dashboard summary
+
 Example output
 
 ```csv
 Row,IssueType,Column,Value
-3,Missing,DOI,
-4,Missing,Title,
-5,Invalid,PublicationYear,invalid
-6,Invalid,PublicationYear,2099
+3,Missing,SKU,
+4,Missing,ProductName,
+5,Invalid,StockQuantity,-3
+6,Invalid,StockQuantity,invalid
+7,Invalid,ReorderLevel,-1
+8,Invalid,ReorderLevel,invalid
 ```
 
 ---
@@ -325,6 +387,8 @@ Row,IssueType,Column,Value
 ✓ Product Data Validation
 
 ✓ Research Metadata Validation
+
+✓ Inventory Data Validation
 
 ✓ Email Validation
 
@@ -372,8 +436,6 @@ Row,IssueType,Column,Value
 □ Export Validation Results
 
 □ Summary Export
-
-□ InventoryValidation.bas
 
 □ Additional Validation Modules
 
