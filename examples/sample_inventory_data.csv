@@ -1,0 +1,9 @@
+SKU,ProductName,StockQuantity,ReorderLevel
+P001,Office Chair,25,10
+P002,Standing Desk,8,5
+,Wireless Mouse,50,20
+P004,,15,5
+P005,USB Hub,-3,10
+P006,Monitor,invalid,5
+P007,Keyboard,12,-1
+P008,Web Camera,7,invalid
