@@ -227,8 +227,7 @@ Public Sub HighlightDuplicates()
     Dim ws As Worksheet
     Dim lastRow As Long
     Dim targetRange As Range
-    Dim duplicateRule As FormatCondition
-
+    Dim duplicateRule As UniqueValues
     Set ws = ActiveSheet
     lastRow = GetLastDataRow(ws, 1)
 
