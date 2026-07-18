@@ -1,20 +1,18 @@
-![Version](https://img.shields.io/badge/version-v0.8-blue)
+![Version](https://img.shields.io/badge/version-v0.9-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 # Excel Data Validator
 
-Reusable Excel VBA toolkit for data validation, quality checks, and structured validation workflows.
+Cross-platform Excel VBA toolkit for customer data validation, issue reporting, and CSV export.
 
-Built with Microsoft Excel VBA for customer, product, inventory, and research datasets.
+Designed for both **Windows** and **macOS**, with platform-specific export workflows for maximum reliability.
 
 ---
 
 ## Architecture
 
-<p align="center">
-  <img src="images/architecture.svg" width="800" alt="Excel Data Validator Architecture">
-</p>
+![Architecture](images/architecture.svg)
 
 ---
 
@@ -22,429 +20,135 @@ Built with Microsoft Excel VBA for customer, product, inventory, and research da
 
 ✓ Required Field Validation
 
-✓ Customer Data Validation
-
-✓ Product Data Validation
-
-✓ Research Metadata Validation
-
-✓ Inventory Data Validation
+✓ Email Format Validation
 
 ✓ Duplicate Detection
 
-✓ Validation Status Flags
+✓ Validation Summary Report
 
-✓ Email Validation
+✓ CSV Validation Report Export
 
-✓ Email Domain Validation
+✓ Windows / macOS Support
 
-✓ Validation Reports
+✓ English + Japanese Source Code Comments
 
-✓ Summary Generation
-
-✓ CSV Validation Export
-
-✓ Validation Dashboard
-
-✓ Highlight Errors
-
-✓ Validation Rules
-
-✓ Validation Workflows
-
-✓ Excel VBA
-
-✓ Reusable Validation Modules
+✓ Modular VBA Design
 
 ---
 
-## Example Use Cases
+## Supported Platforms
 
-### Customer Master Validation
-
-- Missing customer names
-- Missing email addresses
-- Invalid email formats
-- Invalid email domains
-- Duplicate customer IDs
-- Validation status checks
-- Validation summaries
-- Dashboard-ready validation results
-- CSV validation reports
-- Required field validation
-
-### Product Catalog Validation
-
-- Missing SKU
-- Missing product names
-- Duplicate product codes
-- Invalid prices
-- Negative prices
-- Product quality checks
-
-### Research Metadata Validation
-
-- Missing DOI
-- Missing title
-- Invalid publication year
-- Future publication year
-- Metadata consistency checks
-- Research dataset validation
-
-### Inventory Validation
-
-- Missing SKU
-- Missing product names
-- Negative stock quantity
-- Invalid stock quantity
-- Negative reorder level
-- Inventory data validation
+| Platform | Status |
+|----------|--------|
+| Windows | ✅ Fully Supported |
+| macOS | ✅ Supported |
 
 ---
 
-## Repository Structure
+## CSV Export
 
-```text
-Excel-Data-Validator/
+### Windows
 
-images/
-    architecture.svg
+The CSV validation report is automatically exported as UTF-8 to the same folder as the workbook.
 
-modules/
-    Validation.bas
-    Dashboard.bas
-    ProductValidation.bas
-    ResearchValidation.bas
-    InventoryValidation.bas
+Example:
 
-examples/
-    sample_customer_data.csv
-    sample_product_data.csv
-    sample_research_data.csv
-    sample_inventory_data.csv
-
-README.md
-
-LICENSE
+```
+validation_report_20260719_073000.csv
 ```
 
 ---
 
-## Included Examples
+### macOS
 
-### Validation.bas
+Due to Excel for macOS sandbox and file-access restrictions, the native **Save As** dialog is used.
 
-Features
+Recommended workflow:
 
-- Missing Name detection
-- Missing Email detection
-- Invalid Email detection
-- Email domain validation
-- Duplicate Customer ID detection
-- Error highlighting
-- Cleanup workflows
-- Validation reports
-- Summary generation
-- CSV report export
-- Reusable VBA modules
+1. Save the file in your **Downloads** folder.
+2. Select:
 
-Location
+```
+CSV UTF-8 (Comma delimited) (.csv)
+```
 
-```text
-modules/Validation.bas
+3. After saving, open your Downloads folder to locate the exported report.
+
+This design provides the most reliable experience across different versions of Excel for macOS.
+
+---
+
+## Project Structure
+
+```
+Excel-Data-Validator
+│
+├── modules
+│   ├── Validation.bas
+│   ├── Dashboard.bas
+│   ├── ProductValidation.bas
+│   ├── ResearchValidation.bas
+│   ├── InventoryValidation.bas
+│   └── CsvExport.bas
+│
+├── images
+│   └── architecture.svg
+│
+├── examples
+│   ├── sample_customer_data.csv
+│   ├── sample_product_data.csv
+│   ├── sample_research_data.csv
+│   └── sample_inventory_data.csv
+│
+├── Excel-Data-Validator.xlsm
+│
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-### Dashboard.bas
+## Sample Validation Report
 
-Features
-
-- Validation dashboard
-- Validation summary display
-- Dashboard metrics
-- Dashboard foundation
-- Future dashboard UI support
-
-Location
-
-```text
-modules/Dashboard.bas
-```
+| Row | Issue Type | Column | Value |
+|----:|------------|---------|-------|
+| 3 | Missing | Name | |
+| 4 | Missing | Email | |
+| 5 | Invalid | Email | invalid-email |
 
 ---
 
-### ProductValidation.bas
-
-Features
-
-- Missing SKU detection
-- Missing Product Name detection
-- Invalid Price detection
-- Negative Price detection
-- Product validation highlighting
-- Reusable product validation module
-
-Location
-
-```text
-modules/ProductValidation.bas
-```
-
----
-
-### ResearchValidation.bas
-
-Features
-
-- Missing DOI detection
-- Missing Title detection
-- Invalid Publication Year detection
-- Future Publication Year detection
-- Research metadata highlighting
-- Reusable research validation module
-
-Location
-
-```text
-modules/ResearchValidation.bas
-```
-
----
-
-### InventoryValidation.bas
-
-Features
-
-- Missing SKU detection
-- Missing Product Name detection
-- Invalid Stock Quantity detection
-- Negative Stock Quantity detection
-- Invalid Reorder Level detection
-- Negative Reorder Level detection
-- Inventory validation highlighting
-- Reusable inventory validation module
-
-Location
-
-```text
-modules/InventoryValidation.bas
-```
-
----
-
-## Validation Workflow
-
-```text
-ClearValidationHighlights()
-
-↓
-
-ValidateCustomerData()
-
-↓
-
-ValidateEmails()
-
-↓
-
-Email Domain Validation
-
-↓
-
-ValidateProductData()
-
-↓
-
-ValidateResearchData()
-
-↓
-
-ValidateInventoryData()
-
-↓
-
-HighlightDuplicates()
-
-↓
-
-GenerateValidationReport()
-
-↓
-
-GenerateCSVReport()
-
-↓
-
-ShowValidationDashboard()
-```
-
----
-
-## Sample Datasets
-
-### sample_customer_data.csv
-
-Example fields
-
-- CustomerID
-- Name
-- Email
-
-Validation scenarios
-
-- Duplicate CustomerID
-- Missing Name
-- Missing Email
-- Invalid Email Format
-- Invalid Email Domain
-- Validation Reports
-- Dashboard summary
-- CSV Export
-
----
-
-### sample_product_data.csv
-
-Example fields
-
-- SKU
-- ProductName
-- Price
-
-Validation scenarios
-
-- Missing SKU
-- Missing Product Name
-- Negative Price
-- Invalid Price
-- Product validation
-- Dashboard summary
-
----
-
-### sample_research_data.csv
-
-Example fields
-
-- DOI
-- Title
-- PublicationYear
-
-Validation scenarios
-
-- Missing DOI
-- Missing Title
-- Invalid Publication Year
-- Future Publication Year
-- Research metadata validation
-- Dashboard summary
-
----
-
-### sample_inventory_data.csv
-
-Example fields
-
-- SKU
-- ProductName
-- StockQuantity
-- ReorderLevel
-
-Validation scenarios
-
-- Missing SKU
-- Missing Product Name
-- Negative Stock Quantity
-- Invalid Stock Quantity
-- Negative Reorder Level
-- Invalid Reorder Level
-- Inventory validation
-- Dashboard summary
-
-Example output
-
-```csv
-Row,IssueType,Column,Value
-3,Missing,SKU,
-4,Missing,ProductName,
-5,Invalid,StockQuantity,-3
-6,Invalid,StockQuantity,invalid
-7,Invalid,ReorderLevel,-1
-8,Invalid,ReorderLevel,invalid
-```
-
----
-
-## Technical Highlights
-
-✓ Excel VBA
-
-✓ Validation Automation
-
-✓ Customer Data Validation
-
-✓ Product Data Validation
-
-✓ Research Metadata Validation
-
-✓ Inventory Data Validation
-
-✓ Email Validation
-
-✓ Email Domain Validation
-
-✓ Duplicate Detection
-
-✓ Validation Dashboard
-
-✓ CSV Export
-
-✓ Validation Reports
-
-✓ Summary Statistics
-
-✓ Error Highlighting
-
-✓ Validation Status Flags
-
-✓ Validation Workflows
-
-✓ Reusable Macro Modules
-
-✓ Structured Data Validation
-
-✓ Data Quality Automation
-
----
-
-## Built With
-
-- Microsoft Excel
-- VBA
+## Development Principles
+
+- Architecture First
+- Cross-platform compatibility
+- English naming conventions
+- English + Japanese comments
+- Modular VBA design
+- Excel Table friendly
+- GitHub portfolio ready
 
 ---
 
 ## Roadmap
 
-□ Dashboard Charts
+### v1.0
 
-□ Dashboard UI
+- Stable cross-platform release
+- Improved Dashboard
+- Validation performance improvements
 
-□ Batch Validation
+### Future Ideas
 
-□ Export Validation Results
-
-□ Summary Export
-
-□ Additional Validation Modules
+- Multi-sheet validation
+- Custom validation rules
+- Localization
+- HTML validation report
+- PDF export
+- Power Query integration
 
 ---
 
 ## License
 
-MIT © 2026 Seiko K
-
----
-
-Created by Seiko-K
+MIT License
